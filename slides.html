@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manglish ASR + Translation – Project Slides</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    counter-reset: slide;
+  }
+
+  .slide {
+    width: 960px;
+    min-height: 540px;
+    margin: 30px auto;
+    background: #0f3460;
+    border-radius: 12px;
+    padding: 48px 56px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    page-break-after: always;
+  }
+
+  .slide::before {
+    counter-increment: slide;
+    content: counter(slide) " / 14";
+    position: absolute;
+    bottom: 16px; right: 24px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .slide::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 6px; height: 100%;
+    background: linear-gradient(180deg, #e94560, #0f3460);
+    border-radius: 12px 0 0 12px;
+  }
+
+  /* Title slide */
+  .slide.title-slide {
+    background: linear-gradient(135deg, #0f3460 60%, #16213e);
+    text-align: center;
+    align-items: center;
+    gap: 14px;
+  }
+  .slide.title-slide::after { display: none; }
+
+  .uni-badge {
+    background: white;
+    color: #0f3460;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .slide.title-slide h1 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #fff;
+    max-width: 700px;
+  }
+  .slide.title-slide h1 span { color: #e94560; }
+
+  .meta-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #ccd6f6;
+  }
+  .meta-row div { text-align: center; }
+  .meta-row strong { display: block; color: #e94560; font-size: 13px; }
+
+  /* Headings */
+  h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #e94560;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(233,69,96,0.3);
+  }
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64ffda;
+    margin: 14px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Body */
+  p, li { font-size: 14px; line-height: 1.6; color: #ccd6f6; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 7px; }
+  li::marker { color: #e94560; }
+  em { color: #a8b2d8; font-style: normal; font-size: 12.5px; }
+
+  .cols { display: flex; gap: 32px; }
+  .col { flex: 1; }
+
+  .box {
+    background: rgba(100,255,218,0.07);
+    border-left: 4px solid #64ffda;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 13px;
+    color: #ccd6f6;
+  }
+  .box.red { background: rgba(233,69,96,0.1); border-left-color: #e94560; }
+  .box.yellow { background: rgba(255,214,0,0.07); border-left-color: #ffd700; }
+
+  .cards { display: flex; gap: 14px; margin: 16px 0; }
+  .card {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .card .big { font-size: 30px; font-weight: 800; color: #64ffda; }
+  .card .big.bad { color: #e94560; }
+  .card .big.mid { color: #ffd700; }
+  .card .label { font-size: 11px; color: #a8b2d8; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .card .model { font-size: 11px; color: #fff; margin-top: 2px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th {
+    background: rgba(233,69,96,0.2);
+    color: #e94560;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.07); color: #ccd6f6; }
+  .best { color: #64ffda; font-weight: 700; }
+  .worst { color: #e94560; font-weight: 700; }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 20px 0;
+  }
+  .pipe-box {
+    background: rgba(100,255,218,0.1);
+    border: 1.5px solid #64ffda;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    min-width: 110px;
+  }
+  .pipe-box .sub { font-size: 10px; color: #a8b2d8; margin-top: 3px; }
+  .arrow { font-size: 20px; color: #e94560; padding: 0 6px; flex-shrink: 0; }
+
+  .agenda { list-style: none; padding: 0; }
+  .agenda li {
+    padding: 9px 14px;
+    margin: 5px 0;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    border-left: 3px solid #e94560;
+    font-size: 14px;
+    color: #ccd6f6;
+  }
+
+  @media print {
+    body { background: white; }
+    .slide { page-break-after: always; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 – TITLE -->
+<div class="slide title-slide">
+  <div class="uni-badge">University of Nottingham Malaysia · 2026</div>
+  <h1>A Speech-to-Text Translation System for <span>English–Malay</span><br>with Informal &amp; Code-Switched Speech</h1>
+  <div class="meta-row">
+    <div><strong>Supervisor</strong>Dr. Kweh Yeah Lun</div>
+    <div><strong>Degree</strong>BSc Computer Science + AI (Hons)</div>
+  </div>
+</div>
+
+<!-- SLIDE 2 – AGENDA -->
+<div class="slide">
+  <h2>Outline</h2>
+  <ul class="agenda">
+    <li>Background &amp; Motivation</li>
+    <li>Problem Statement &amp; Objectives</li>
+    <li>System Architecture</li>
+    <li>Dataset</li>
+    <li>ASR Models &amp; Configurations</li>
+    <li>Results — ASR (WER)</li>
+    <li>Results — Machine Translation (BLEU)</li>
+    <li>Qualitative Error Analysis</li>
+    <li>Contributions, Limitations &amp; Future Work</li>
+    <li>Conclusion</li>
+  </ul>
+</div>
+
+<!-- SLIDE 3 – BACKGROUND -->
+<div class="slide">
+  <h2>Background &amp; Motivation</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>The Gap</h3>
+      <ul>
+        <li>Modern ASR achieves near-human performance on <strong>clean, formal English</strong></li>
+        <li>Real conversations are informal, accented, multilingual</li>
+        <li>Models trained on formal data degrade significantly in the wild</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Manglish</h3>
+      <ul>
+        <li>Dominant spoken register among educated Malaysians</li>
+        <li>Mixes English + Malay with particles: <em>lah, ah, kan, wah</em></li>
+        <li>Code-switching mid-sentence, non-standard grammar</li>
+        <li><strong>Not in any public ASR or MT dataset</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="box yellow" style="margin-top:20px">
+    Commercial speech systems are poorly equipped to handle Manglish — yet it is the everyday language of millions of Malaysians.
+  </div>
+</div>
+
+<!-- SLIDE 4 – PROBLEM & OBJECTIVES -->
+<div class="slide">
+  <h2>Problem Statement &amp; Objectives</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>Two Core Challenges</h3>
+      <div class="box red">
+        <strong>1. ASR accuracy</strong><br>
+        Models can't reliably transcribe Malay words, discourse particles, or code-switched utterances → high WER
+      </div>
+      <div class="box red" style="margin-top:10px">
+        <strong>2. Cascading errors</strong><br>
+        ASR errors corrupt MT input → translation quality collapses
+      </div>
+    </div>
+    <div class="col">
+      <h3>Objectives</h3>
+      <ul>
+        <li>Build a cascaded ASR → MT pipeline for English–Malay</li>
+        <li>Evaluate 4 ASR configurations on Manglish speech</li>
+        <li>Investigate wav2vec fine-tuning under low-resource constraints</li>
+        <li>Quantify the cascading error amplification effect</li>
+        <li>Analyse failure modes qualitatively</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5 – ARCHITECTURE -->
+<div class="slide">
+  <h2>System Architecture</h2>
+  <div class="pipeline">
+    <div class="pipe-box">
+      🎤 Audio Input
+      <div class="sub">WAV · 16 kHz</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pipe-box" style="border-color:#e94560;background:rgba(233,69,96,0.12)">
+      ASR Module
+      <div class="sub">Whisper / wav2vec 2.0<br>baseline / FT / +KenLM</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pipe-box">
+      Transcript
+      <div class="sub">English / Manglish</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pipe-box" style="border-color:#e94560;background:rgba(233,69,96,0.12)">
+      MT Module
+      <div class="sub">NLLB-200<br>(distilled-600M)</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pipe-box">
+      🇲🇾 Malay Output
+    </div>
+  </div>
+  <div class="cols" style="margin-top:10px">
+    <div class="col">
+      <div class="box">
+        <strong>Modular design</strong> — MT fixed across all experiments; BLEU differences = ASR quality differences only
+      </div>
+    </div>
+    <div class="col">
+      <div class="box">
+        <strong>Metrics:</strong> ASR → WER &nbsp;|&nbsp; MT → BLEU &nbsp;|&nbsp; Upper-bound BLEU from ground-truth → MT
+      </div>
+    </div>
+  </div>
+  <div class="box" style="margin-top:10px">
+    <strong>Web UI (Gradio):</strong> Upload WAV → select model → live transcription + Malay translation side by side
+  </div>
+</div>
+
+<!-- SLIDE 6 – DATASET -->
+<div class="slide">
+  <h2>Dataset</h2>
+  <p style="margin-bottom:14px">No public dataset covers informal Manglish — <strong>manually constructed</strong> from scratch.</p>
+  <div class="cards">
+    <div class="card"><div class="big">61</div><div class="label">Utterances</div></div>
+    <div class="card"><div class="big">6–12</div><div class="label">Words / utterance</div></div>
+    <div class="card"><div class="big">3</div><div class="label">Annotations per sample</div><div class="model">Audio · Transcript · Malay ref.</div></div>
+  </div>
+  <h3>Four Utterance Categories</h3>
+  <table>
+    <tr><th>Category</th><th>Example</th></tr>
+    <tr><td>Pure informal English</td><td><em>"you do finish already or still doing"</em></td></tr>
+    <tr><td>Manglish + discourse particles</td><td><em>"i think lah this one better we do tomorrow"</em></td></tr>
+    <tr><td>Code-switched English–Malay</td><td><em>"this part susah sikit i need more time"</em></td></tr>
+    <tr><td>Predominantly Malay</td><td><em>"tadi lecturer explain laju sangat tak sempat nak faham"</em></td></tr>
+  </table>
+  <div class="box yellow" style="font-size:12.5px">
+    <strong>Note:</strong> Same 61 samples used for fine-tuning AND evaluation (dataset too small to split). Results reflect domain adaptation, not generalisation.
+  </div>
+</div>
+
+<!-- SLIDE 7 – ASR CONFIGS -->
+<div class="slide">
+  <h2>ASR Models &amp; Configurations</h2>
+  <table>
+    <tr><th>#</th><th>Model</th><th>Training Data</th><th>Key Trait</th></tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Whisper (small)</strong><br><em>39M params · Seq2Seq</em></td>
+      <td>680K hrs · 99 languages</td>
+      <td>Includes Malay; robust to informal speech</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>wav2vec 2.0 baseline</strong><br><em>CTC decoder</em></td>
+      <td>960 hrs clean English (LibriSpeech)</td>
+      <td>No Malay exposure; formal speech only</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>wav2vec fine-tuned</strong><br><em>Top-2 layers unfrozen</em></td>
+      <td>Baseline + 61 Manglish utterances<br><em>LR 5×10⁻⁶ · 3 epochs</em></td>
+      <td>Limited domain adaptation</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>wav2vec + KenLM</strong><br><em>CTC + n-gram LM</em></td>
+      <td>Standard English n-gram LM</td>
+      <td>Vocabulary mismatch with Manglish</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SLIDE 8 – ASR RESULTS -->
+<div class="slide">
+  <h2>Results — ASR (Word Error Rate)</h2>
+  <p style="margin-bottom:12px;font-size:13px">Lower WER = better. WER &gt; 1.0 = insertion errors exceed total word count.</p>
+  <div class="cards">
+    <div class="card"><div class="big best">0.415</div><div class="label">Whisper</div><div class="model">Best</div></div>
+    <div class="card"><div class="big bad">0.724</div><div class="label">wav2vec baseline</div><div class="model">−30.9pp vs Whisper</div></div>
+    <div class="card"><div class="big mid">0.700</div><div class="label">wav2vec fine-tuned</div><div class="model">Modest −2.4pp</div></div>
+    <div class="card"><div class="big bad">0.916</div><div class="label">wav2vec + KenLM</div><div class="model">Worst — LM backfired</div></div>
+  </div>
+  <h3>Per-Category Breakdown</h3>
+  <table>
+    <tr><th>Category</th><th>Whisper</th><th>wav2vec baseline</th><th>wav2vec fine-tuned</th></tr>
+    <tr><td>English-dominant</td><td class="best">0.323</td><td>0.589</td><td>0.573</td></tr>
+    <tr><td>Mixed English–Malay</td><td class="best">0.528</td><td>0.755</td><td>0.721</td></tr>
+    <tr><td>Malay-dominant</td><td class="worst">1.184</td><td class="worst">1.211</td><td class="worst">1.211</td></tr>
+  </table>
+  <div class="box red" style="font-size:12.5px">
+    All models fail on Malay-dominant utterances (WER &gt; 1.0). Fine-tuning on English data cannot bridge the Malay phonology gap.
+  </div>
+</div>
+
+<!-- SLIDE 9 – KEY ASR FINDINGS -->
+<div class="slide">
+  <h2>Key ASR Findings</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>Why Whisper wins</h3>
+      <ul>
+        <li>Multilingual pretraining → knows Malay phonology</li>
+        <li>Trained on internet audio → robust to informal speech</li>
+        <li>Seq2Seq decoder uses context; CTC makes independent frame decisions</li>
+      </ul>
+      <div class="box" style="margin-top:12px;font-size:12px">
+        <em>"you boleh tolong explain this part tak"</em><br><br>
+        Whisper: <span style="color:#64ffda">"you can help me explain this part, though."</span><br>
+        wav2vec: <span style="color:#e94560">"you bulito loge splendi spite da"</span>
+      </div>
+    </div>
+    <div class="col">
+      <h3>Why KenLM backfired</h3>
+      <ul>
+        <li>English LM assigns near-zero probability to Malay words</li>
+        <li>Decoder loses word boundaries → merges tokens into single strings</li>
+      </ul>
+      <div class="box red" style="margin-top:12px;font-size:12px">
+        Reference: <em>"i think lah this one better we do tomorrow"</em><br>
+        LM output: <span style="color:#e94560">"itingladisone beteittomoro"</span>
+      </div>
+      <div class="box yellow" style="margin-top:10px;font-size:12px">
+        LM integration requires a <strong>Manglish-aware LM</strong> — a generic English LM actively harms performance.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10 – MT RESULTS -->
+<div class="slide">
+  <h2>Results — Machine Translation (BLEU)</h2>
+  <p style="margin-bottom:12px;font-size:13px">Higher BLEU = better. Upper-bound = ground-truth transcripts fed directly to MT.</p>
+  <div class="cards">
+    <div class="card"><div class="big best">26.78</div><div class="label">Upper Bound</div><div class="model">Ground truth → MT</div></div>
+    <div class="card"><div class="big mid">9.64</div><div class="label">Whisper → MT</div><div class="model">64% below upper bound</div></div>
+    <div class="card"><div class="big bad">2.35</div><div class="label">wav2vec → MT</div></div>
+    <div class="card"><div class="big bad">2.28</div><div class="label">wav2vec FT → MT</div><div class="model">WER↓ ≠ BLEU↑</div></div>
+    <div class="card"><div class="big bad">2.05</div><div class="label">+KenLM → MT</div></div>
+  </div>
+  <h3>The Cascading Error Effect</h3>
+  <div class="cols">
+    <div class="col">
+      <div class="box red">
+        Whisper loses <strong>17.14 BLEU points</strong> vs upper bound (64% drop).<br>
+        wav2vec pipelines (~2.3) are effectively unusable.
+      </div>
+    </div>
+    <div class="col">
+      <div class="box red">
+        <strong>WER–BLEU decoupling:</strong> Fine-tuning improved WER 0.724→0.700 but BLEU barely changed (2.35→2.28). wav2vec error rate still too high for coherent MT input.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11 – QUALITATIVE ERRORS -->
+<div class="slide">
+  <h2>Qualitative Error Analysis</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>ASR Failure Modes</h3>
+      <ul>
+        <li><strong>Discourse particles</strong> — <em>lah, kan, wah</em> absent from training data; Whisper maps "lah" → "laugh"</li>
+        <li><strong>Code-switched Malay words</strong> — wav2vec produces random phonetic sequences; Whisper normalises to English</li>
+        <li><strong>Predominantly Malay utterances</strong> — all models fail; fine-tuning makes no difference</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>MT Error Propagation</h3>
+      <ul>
+        <li><strong>Hallucination</strong> — plausible Malay with no connection to source meaning</li>
+        <li><strong>Literal nonsense</strong> — "laugh" → "ketawa" instead of intended "can do"</li>
+        <li><strong>Partial recovery</strong> — only Whisper produces enough correct tokens for usable translation</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box yellow" style="margin-top:14px;font-size:12.5px">
+    Even with <strong>perfect ASR</strong>, BLEU upper-bound is 26.78 (below 40) — the MT also struggles with Manglish vocabulary and grammar.
+  </div>
+</div>
+
+<!-- SLIDE 12 – CONTRIBUTIONS -->
+<div class="slide">
+  <h2>Contributions</h2>
+  <div class="cols">
+    <div class="col">
+      <ul>
+        <li><strong>Novel evaluation dataset</strong> — 61 informal English–Malay code-switched utterances with transcriptions + Malay reference translations. First of its kind.</li>
+        <li><strong>Comparative ASR evaluation</strong> — 4 configurations under identical Manglish conditions, filling an empirical gap in the literature.</li>
+        <li><strong>WER–BLEU decoupling evidence</strong> — improving transcription accuracy does not improve translation when baseline WER is very high.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul>
+        <li><strong>LM integration failure analysis</strong> — characterised why standard KenLM fusion fails on code-switched speech.</li>
+        <li><strong>Complete pipeline</strong> — reproducible Python codebase (Whisper, wav2vec 2.0, KenLM, NLLB-200) + Gradio web UI.</li>
+        <li><strong>Qualitative error taxonomy</strong> — structured classification of Manglish ASR &amp; MT failure patterns.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13 – LIMITATIONS & FUTURE WORK -->
+<div class="slide">
+  <h2>Limitations &amp; Future Work</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>Limitations</h3>
+      <ul>
+        <li>Small dataset (61 samples) — no train/test split</li>
+        <li>Fine-tuning evaluated on training data</li>
+        <li>MT model not fine-tuned for Manglish input</li>
+        <li>Whisper forced English mode — penalises Malay-dominant utterances</li>
+        <li>KenLM hyperparameters not exhaustively tuned</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Future Directions</h3>
+      <ul>
+        <li>Larger, diverse Manglish dataset with proper train/test split</li>
+        <li><strong>Fine-tune Whisper</strong> on Manglish — most promising path forward</li>
+        <li>Language-agnostic ASR mode for bilingual utterances</li>
+        <li>Fine-tune NLLB-200 on Manglish input–output pairs</li>
+        <li>Domain-specific KenLM on Malaysian English text</li>
+        <li>End-to-end joint ASR+MT to eliminate cascading errors</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14 – CONCLUSION -->
+<div class="slide">
+  <h2>Conclusion</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>Key Findings</h3>
+      <ul>
+        <li>Whisper (WER 0.415) substantially outperforms wav2vec (0.724) — multilingual pretraining is decisive</li>
+        <li>Fine-tuning yields modest WER gain but <strong>no BLEU improvement</strong></li>
+        <li>KenLM degrades ASR to WER 0.916 — vocabulary mismatch</li>
+        <li>Cascading errors: Whisper BLEU drops 64% (26.78 → 9.64); wav2vec ~2.3 (near-zero)</li>
+        <li>Discourse particles, code-switched words, Malay-dominant utterances = core failure modes</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Take-home Message</h3>
+      <div class="box yellow">
+        Strong benchmark performance on standard English <strong>does not translate</strong> to real-world informal multilingual settings.
+      </div>
+      <div class="box" style="margin-top:10px">
+        <strong>Improving ASR is the highest-leverage intervention</strong> — it unlocks improvements across the entire pipeline.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
