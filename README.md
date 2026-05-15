@@ -93,8 +93,8 @@ id,audio_path,reference
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/SyukranSJ/fyp_asr.git
-cd fyp_asr
+git clone https://github.com/SyukranSJ/manglish-asr-translation.git
+cd manglish-asr-translation
 ```
 
 ### 2. Create a virtual environment
