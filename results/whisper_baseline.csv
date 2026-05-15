@@ -1,0 +1,62 @@
+id,audio_path,reference,whisper_pred
+1,data/audio/test1.wav,i think lah this one better we do tomorrow,"i think la, this one better we do tomorrow."
+2,data/audio/test2.wav,why you never reply my message just now,why you never reply my message just now?
+3,data/audio/test3.wav,this part susah sikit i need more time,this part's susasi kid. i need more time.
+4,data/audio/test4.wav,you boleh tolong explain this part tak,"you can help me explain this part, though."
+5,data/audio/test5.wav,i try already but still tak jalan,i tried already but still not
+6,data/audio/test6.wav,maybe kita boleh buat cara lain,maybe we can do it another way.
+7,data/audio/test7.wav,eh actually i think this one can lah,"actually, i think this one can laugh."
+8,data/audio/test8.wav,aiya i forgot to bring my laptop today,i forgot to bring my laptop today.
+9,data/audio/test9.wav,hmm maybe we try again later,maybe we can try again later.
+10,data/audio/test10.wav,okay lah we do it this way,okay now we do it this way
+11,data/audio/test11.wav,like that also can no problem,like that also can no problem
+12,data/audio/test12.wav,i think benda ni boleh siap kot hari ni,i think the nany body shot gotanda really
+13,data/audio/test13.wav,tadi lecturer explain laju sangat tak sempat nak faham,now
+14,data/audio/test14.wav,kalau awak free kita boleh jumpa sekejap,if it's not fit we can try it for a while
+15,data/audio/test15.wav,assignment ni ambil masa lama sikit,the fine money i'll bring your master withけど
+16,data/audio/test16.wav,he promise nak hantar tapi sampai sekarang tak ada,"now, something to write. now you sit down at least 3 minutes knowing what to write"
+17,data/audio/test17.wav,i don’t really get what the lecturer nak,i don't really get what they like to do not.
+18,data/audio/test18.wav,this question very confusing sumpah,"this question is very confusing, soopa."
+19,data/audio/test19.wav,i was supposed to finish this semalam,i was supposed to finish this malam.
+20,data/audio/test20.wav,can you help me check if this is correct atau tak,can you help me check if this is correct or not?
+21,data/audio/test21.wav,the instructions tak jelas,the instructions touch a less.
+22,data/audio/test22.wav,i think kita kena to redo this part,i think it's gonna redo this part
+23,data/audio/test23.wav,this place quite far lah need to drive,"this place quite far along, need to drive."
+24,data/audio/test24.wav,you free later or not i want to ask something,you free later or not. i want to ask something.
+25,data/audio/test25.wav,today traffic damn bad i was late,today traffic damn bad. i was late.
+26,data/audio/test26.wav,i don’t really understand what the lecturer wants,i don't really understand what the lecturer wants.
+27,data/audio/test27.wav,this part i think we need to change a bit,this part i think we need to change a bit.
+28,data/audio/test28.wav,i was supposed to send it yesterday but forgot,i was supposed to send it yesterday but forgot.
+29,data/audio/test29.wav,the explanation not very clear honestly,"the explanation, not very clear honestly."
+30,data/audio/test30.wav,i already told you yesterday you forgot is it,i already told you yesterday you forgot is it
+31,data/audio/test31.wav,this food not bad lah but a bit expensive,"this would not bad lah, but it'd be expensive."
+32,data/audio/test32.wav,you wait for me five minutes can or not,"wait for me if i miss, can i not?"
+33,data/audio/test33.wav,i’m very tired today didn’t sleep well,"i'm very tired today, it isnt'l well."
+34,data/audio/test34.wav,that one i don’t really understand honestly,that one i don't really understand honestly.
+35,data/audio/test35.wav,saya rasa assignment ni susah sikit lah,sorry rashid's i'm always with nano
+36,data/audio/test36.wav,tadi dia cakap nak jumpa tapi tak confirm lagi,he said that he saw活 de appreciated his family member.
+37,data/audio/test37.wav,later kita pergi makan dulu then only discuss,"later, we'll take a break and discuss."
+38,data/audio/test38.wav,i already submit the assignment tapi tak sure betul ke tak,i already submitted the assignment that we should have taken out.
+39,data/audio/test39.wav,kalau macam ni i think better we wait dulu,"if this is the case, i think we will wait to look."
+40,data/audio/test40.wav,dia cakap nak datang but suddenly cancel,he said he would be cancelled
+41,data/audio/test41.wav,this one ah quite hard to explain,this one is quite hard to explain.
+42,data/audio/test42.wav,you see first then tell me how,you see first then tell me how
+43,data/audio/test43.wav,i not very sure about this one,i'm not very sure about this one.
+44,data/audio/test44.wav,why suddenly cannot work already,why suddenly can't work already?
+45,data/audio/test45.wav,you do finish already or still doing,you do finish already or still going?
+46,data/audio/test46.wav,that time he say can now change again,that time he say can now change again
+47,data/audio/test47.wav,this one ah got problem somewhere,this one i got problems somewhere
+48,data/audio/test48.wav,you try again slowly can or not,"you try again slowly, can or not?"
+49,data/audio/test49.wav,this one memang confusing i also lost,this one may be confusing. i also lost.
+50,data/audio/test50.wav,you boleh explain again slower tak,"you will hear a splint again, slow it down."
+51,data/audio/test51.wav,i thought dah betul but actually wrong,i thought that was true but actually wrong
+52,data/audio/test52.wav,kalau like this then we redo everything,color like this then we redo everything
+53,data/audio/test53.wav,i check already tapi still got error,"i checked already, the piece still got error"
+54,data/audio/test54.wav,maybe kita fix this part first,maybe we fix this part first
+55,data/audio/test55.wav,dia say okay but i rasa something off,do you say okay but i rest something off?
+56,data/audio/test56.wav,i try follow step tu but tak boleh,i try follow up step 2 but... i can't
+57,data/audio/test57.wav,i think this part is slightly wrong lah,i think this part is slightly wrong la.
+58,data/audio/test58.wav,the answer doesn’t really make sense,the answer doesn't really make sense.
+59,data/audio/test59.wav,i might have done this wrongly tapi tengok lah,i might have done this wrongly but look at this
+60,data/audio/test60.wav,this looks okay but i tak berapa sure,this looks okay but i'm not sure
+61,data/audio/test61.wav,we probably need to adjust this part sikit kot,we probably need to adjust this part ck code

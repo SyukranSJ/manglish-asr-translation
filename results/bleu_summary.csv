@@ -1,0 +1,5 @@
+=== BLEU Summary ===
+Whisper: 9.64
+wav2vec: 2.35
+wav2vec_finetuned: 2.28
+wav2vec_lm: 2.05

@@ -1,0 +1,62 @@
+id,audio_path,reference,reference_ms,mt_pred
+1,data/audio/test1.wav,i think lah this one better we do tomorrow,saya rasa yang ini lebih baik kita buat esok,Saya rasa lah ini lebih baik kita lakukan esok
+2,data/audio/test2.wav,why you never reply my message just now,kenapa awak tak balas mesej saya tadi,Kenapa awak tak pernah menjawab mesej saya sekarang?
+3,data/audio/test3.wav,this part susah sikit i need more time,bahagian ini agak susah saya perlukan lebih masa,bahagian ini susah sikit saya perlukan lebih banyak masa
+4,data/audio/test4.wav,you boleh tolong explain this part tak,awak boleh tolong jelaskan bahagian ini tak,boleh tolong jelaskan bahagian ini tak
+5,data/audio/test5.wav,i try already but still tak jalan,saya dah cuba tapi masih tak menjadi,Saya sudah cuba tapi masih tak jalan
+6,data/audio/test6.wav,maybe kita boleh buat cara lain,mungkin kita boleh buat cara lain,Mungkin kita boleh buat cara lain
+7,data/audio/test7.wav,eh actually i think this one can lah,eh sebenarnya saya rasa yang ini boleh lah,eh sebenarnya saya fikir yang ini boleh lah
+8,data/audio/test8.wav,aiya i forgot to bring my laptop today,aiya saya terlupa bawa laptop hari ini,Aiya saya lupa membawa komputer riba saya hari ini
+9,data/audio/test9.wav,hmm maybe we try again later,hmm mungkin kita cuba lagi nanti,hmm mungkin kita cuba lagi nanti
+10,data/audio/test10.wav,okay lah we do it this way,okay lah kita buat macam ini,Ok lah kita buat macam ni
+11,data/audio/test11.wav,like that also can no problem,macam itu pun boleh tiada masalah,seperti itu juga tidak boleh masalah
+12,data/audio/test12.wav,i think benda ni boleh siap kot hari ni,saya rasa benda ini boleh siap hari ini kot,Saya rasa benda ni boleh siap kot hari ni
+13,data/audio/test13.wav,tadi lecturer explain laju sangat tak sempat nak faham,tadi pensyarah jelaskan terlalu laju tak sempat faham,tadi dosen jelaskan laju sangat tak sempat nak faham
+14,data/audio/test14.wav,kalau awak free kita boleh jumpa sekejap,kalau awak free kita boleh jumpa sekejap,Kalau awak dah bangun kita boleh jumpa sekejap
+15,data/audio/test15.wav,assignment ni ambil masa lama sikit,assignment ini ambil masa agak lama,tugas ni ambil masa lama sikit
+16,data/audio/test16.wav,he promise nak hantar tapi sampai sekarang tak ada,dia janji nak hantar tapi sampai sekarang tak ada,Dia janji nak hantar tapi sampai sekarang tak ada
+17,data/audio/test17.wav,i don’t really get what the lecturer nak,saya tak begitu faham apa yang pensyarah nak,Saya tidak faham apa yang guru nak
+18,data/audio/test18.wav,this question very confusing sumpah,soalan ini sangat mengelirukan sumpah,soalan ini sangat membingungkan sumpah
+19,data/audio/test19.wav,i was supposed to finish this semalam,saya sepatutnya siapkan ini semalam,Aku sepatutnya selesai semalam.
+20,data/audio/test20.wav,can you help me check if this is correct atau tak,boleh tolong semak ini betul atau tidak,boleh tolong saya periksa apakah ini betul atau tak
+21,data/audio/test21.wav,the instructions tak jelas,arahan itu tak jelas,arahan tak jelas
+22,data/audio/test22.wav,i think kita kena to redo this part,saya rasa kita kena buat semula bahagian ini,Saya rasa kita kena buat semula bahagian ini
+23,data/audio/test23.wav,this place quite far lah need to drive,tempat ini agak jauh kena memandu,tempat ini agak jauh lah perlu memandu
+24,data/audio/test24.wav,you free later or not i want to ask something,awak free nanti atau tidak saya nak tanya sesuatu,Kau bebas nanti atau tidak Aku mahu bertanya sesuatu
+25,data/audio/test25.wav,today traffic damn bad i was late,hari ini trafik sangat teruk saya lambat,Hari ini trafik teruk. Saya lewat.
+26,data/audio/test26.wav,i don’t really understand what the lecturer wants,saya tak begitu faham apa yang pensyarah mahukan,Saya tidak faham apa yang mahu dosen
+27,data/audio/test27.wav,this part i think we need to change a bit,bahagian ini saya rasa kita perlu ubah sikit,Saya rasa kita perlu mengubah bahagian ini sedikit
+28,data/audio/test28.wav,i was supposed to send it yesterday but forgot,saya sepatutnya hantar semalam tapi terlupa,Saya sepatutnya menghantarnya semalam tapi lupa
+29,data/audio/test29.wav,the explanation not very clear honestly,penjelasan itu tidak begitu jelas sebenarnya,penjelasan tidak begitu jelas jujur
+30,data/audio/test30.wav,i already told you yesterday you forgot is it,saya dah beritahu awak semalam awak lupa ke,Saya sudah beritahu kamu semalam anda lupa itu
+31,data/audio/test31.wav,this food not bad lah but a bit expensive,makanan ini tak bad lah tapi agak mahal,makanan ini tidak buruk lah tetapi sedikit mahal
+32,data/audio/test32.wav,you wait for me five minutes can or not,awak tunggu saya lima minit boleh tak,anda tunggu saya lima minit boleh atau tidak
+33,data/audio/test33.wav,i’m very tired today didn’t sleep well,saya sangat penat hari ini tak cukup tidur,Aku sangat letih hari ini. Aku tidak tidur dengan baik.
+34,data/audio/test34.wav,that one i don’t really understand honestly,yang itu saya tak begitu faham sebenarnya,Yang saya tidak faham dengan jujur
+35,data/audio/test35.wav,saya rasa assignment ni susah sikit lah,saya rasa assignment ini agak susah lah,Saya rasa tugas ni susah sikit lah
+36,data/audio/test36.wav,tadi dia cakap nak jumpa tapi tak confirm lagi,tadi dia kata nak jumpa tapi belum confirm lagi,tadi dia cakap nak jumpa tapi tak confirm lagi
+37,data/audio/test37.wav,later kita pergi makan dulu then only discuss,nanti kita pergi makan dulu lepas itu bincang,nanti kita pergi makan dulu lepas tu hanya berbincang
+38,data/audio/test38.wav,i already submit the assignment tapi tak sure betul ke tak,saya dah hantar assignment tapi tak pasti betul atau tidak,Saya sudah menghantar tugasan tapi tak pasti betul ke tak
+39,data/audio/test39.wav,kalau macam ni i think better we wait dulu,kalau macam ini saya rasa lebih baik kita tunggu dulu,"Kalau macam ni, kita tunggu dulu."
+40,data/audio/test40.wav,dia cakap nak datang but suddenly cancel,dia kata nak datang tapi tiba-tiba batal,Dia cakap nak datang tapi tiba-tiba membatalkan
+41,data/audio/test41.wav,this one ah quite hard to explain,yang ini agak susah nak jelaskan,Ini agak sukar untuk dijelaskan
+42,data/audio/test42.wav,you see first then tell me how,awak tengok dulu lepas itu beritahu saya,"Kau lihat dulu, lalu beritahu bagaimana."
+43,data/audio/test43.wav,i not very sure about this one,saya tak begitu pasti tentang yang ini,Saya tidak begitu yakin tentang ini
+44,data/audio/test44.wav,why suddenly cannot work already,kenapa tiba-tiba tak boleh jalan pula,kenapa tiba-tiba tidak boleh bekerja sekarang
+45,data/audio/test45.wav,you do finish already or still doing,awak dah siap atau masih buat lagi,anda sudah selesai atau masih melakukan
+46,data/audio/test46.wav,that time he say can now change again,masa itu dia kata boleh sekarang tukar lagi,masa itu dia kata sekarang boleh berubah lagi
+47,data/audio/test47.wav,this one ah got problem somewhere,yang ini ada masalah dekat mana-mana,Ini ada masalah di suatu tempat
+48,data/audio/test48.wav,you try again slowly can or not,awak cuba lagi perlahan-lahan boleh tak,cuba lagi perlahan boleh atau tidak
+49,data/audio/test49.wav,this one memang confusing i also lost,yang ini memang mengelirukan saya pun lost,Yang ini memang membingungkan saya juga kalah
+50,data/audio/test50.wav,you boleh explain again slower tak,awak boleh jelaskan lagi perlahan tak,bolehkah kau jelaskan lagi tak lambat
+51,data/audio/test51.wav,i thought dah betul but actually wrong,saya ingat dah betul tapi sebenarnya salah,Saya fikir dah betul tapi sebenarnya salah
+52,data/audio/test52.wav,kalau like this then we redo everything,kalau macam ini kita buat semula semua,"Kalau begini, kita akan buat semula semua."
+53,data/audio/test53.wav,i check already tapi still got error,saya dah semak tapi masih ada error,Saya sudah memeriksa tapi masih mendapat kesilapan
+54,data/audio/test54.wav,maybe kita fix this part first,mungkin kita baiki bahagian ini dulu,Mungkin kita akan perbaiki bahagian ini terlebih dahulu.
+55,data/audio/test55.wav,dia say okay but i rasa something off,dia kata okay tapi saya rasa macam ada yang tak kena,Dia cakap okay tapi saya rasa sesuatu off
+56,data/audio/test56.wav,i try follow step tu but tak boleh,saya cuba ikut langkah itu tapi tak boleh,Saya cuba mengikut langkah anda tetapi tidak boleh
+57,data/audio/test57.wav,i think this part is slightly wrong lah,saya rasa bahagian ini sedikit salah lah,Saya rasa bahagian ini agak salah lah
+58,data/audio/test58.wav,the answer doesn’t really make sense,jawapan itu tak begitu masuk akal,Jawapan itu tidak masuk akal.
+59,data/audio/test59.wav,i might have done this wrongly tapi tengok lah,mungkin saya buat ini salah tapi tengoklah,Saya mungkin salah melakukan ini tapi lihatlah lah
+60,data/audio/test60.wav,this looks okay but i tak berapa sure,ini nampak okay tapi saya tak berapa pasti,Ini nampak ok tapi saya tak pasti
+61,data/audio/test61.wav,we probably need to adjust this part sikit kot,kita mungkin perlu ubah bahagian ini sikit kot,Kita mungkin perlu menyesuaikan bahagian ini sikit kot
