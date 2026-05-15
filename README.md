@@ -43,7 +43,7 @@ fyp_asr/
 │   ├── mt_infer.py                # MT evaluation (BLEU)
 │   ├── wer_eval.py                # WER evaluation
 │   └── compute_category_wer.py    # WER breakdown by speech category
-├── data/                          # ⚠️ Not included — private voice recordings
+├── data/                          # Not included — private voice recordings
 │   ├── audio/                     # 61 WAV files (16 kHz)
 │   ├── transcripts.csv            # Audio paths + reference transcriptions
 │   ├── transcripts_mt.csv         # Subset for MT evaluation
@@ -164,7 +164,7 @@ Results are saved to the `results/` folder.
 
 ## Author
 
-**Muhammad Syukran Bin Shabaruddin**
+**Muhammad Syukran Shabaruddin**
 BSc Computer Science + Artificial Intelligence (Hons)
 University of Nottingham Malaysia
 Supervisor: Dr. Kweh Yeah Lun
