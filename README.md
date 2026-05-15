@@ -119,7 +119,7 @@ pip install https://github.com/kpu/kenlm/archive/master.zip
 The fine-tuned wav2vec model is hosted on Hugging Face. Download and place it at `models/wav2vec_manglish_ft_v1/`:
 
 ```bash
-# Coming soon — Hugging Face link
+(https://huggingface.co/SSJCODER01/wav2vec2-manglish-ft) — Hugging Face link
 ```
 
 Alternatively, you can fine-tune the model yourself:
