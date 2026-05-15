@@ -2,6 +2,8 @@
 
 A speech-to-text translation pipeline for English–Malay with informal and code-switched speech (Manglish). Built as a Final Year Project at the University of Nottingham Malaysia.
 
+**Report:** [report.pdf](./report.pdf) — Full dissertation 
+ 
 ## Overview
 
 This project evaluates four ASR configurations on a manually constructed Manglish dataset and pipes the transcriptions through a machine translation model to produce Malay output.
